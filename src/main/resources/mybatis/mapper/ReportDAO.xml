@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netease.music.platform.report.DAO.ReportDAO">
+    <resultMap id="reportMap" type="com.netease.music.platform.report.Model.Report">
+        <id column="id" property="id"/>
+        <result column="user" property="user"/>
+        <result column="template_id" property="templateId"/>
+        <result column="content" property="content" typeHandler="com.netease.music.platform.report.Handler.MySqlJsonHandler"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <!--根据ID获取报告-->
+    <select id="getReport" resultMap="reportMap">
+        SELECT * FROM report
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <!--获取所有报告-->
+    <select id="getReportList" resultMap="reportMap">
+        SELECT * FROM report
+    </select>
+
+    <!--插入报告-->
+    <insert id="insertReport" useGeneratedKeys="true" keyProperty="id" parameterType="com.netease.music.platform.report.Model.Report" >
+        INSERT INTO report (user, template_id, content)
+        VALUES
+            (
+                #{user},
+                #{templateId},
+                #{content,jdbcType=OTHER,typeHandler=com.netease.music.platform.report.Handler.MySqlJsonHandler}
+            )
+    </insert>
+
+    <!--修改报告-->
+    <update id="updateReport">
+        UPDATE report
+        <set>
+            <if test="report.user != null">user = #{report.user},</if>
+            <if test="report.templateId != null">template_id = #{report.templateId},</if>
+            <if test="report.content != null">content = #{report.content,jdbcType=OTHER,typeHandler=com.netease.music.platform.report.Handler.MySqlJsonHandler}</if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <!--删除报告-->
+    <update id="deleteReport">
+        DELETE FROM report
+        <where>
+            id = #{id}
+        </where>
+    </update>
+</mapper>

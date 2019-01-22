@@ -1,0 +1,74 @@
+{
+  "title": "压测报告",
+  "type": 0,
+  "content": {
+    "sub": [
+      {
+        "title": "压测目标",
+        "type": 0,
+        "content": {
+          "sub": [
+            {
+              "title": "背景",
+              "key": "beijing",
+              "type": 1,
+              "content": {
+                "placeholder": "链接：需求jira单、压测任务单"
+              }
+            },
+            {
+              "title": "压测目标",
+              "type": 0,
+              "content": {"sub":[
+                {
+                  "title": "压测目标依据",
+                  "key": "yacemubiaoyiju",
+                  "type": 1,
+                  "content": {
+                    "placeholder":"说明制定压测目标的依据，为什么将QPS/MRT制定为对应预期值。线上数据参考,同类数据参考等，结合实际需求情况"
+                  }
+                  
+                },
+                {
+                  "title": "压测范围",
+                  "key": "yacefanwei",
+                  "type": 2,
+                  "content": {
+                    "column": [
+                      {
+                        "title": "接口类型",
+                        "dataIndex": "apiType",
+                        "editable": true
+                      },
+                      {
+                        "title": "模块/接口",
+                        "dataIndex": "apiCn",
+                        "editable": true
+                      }
+                    ]
+                  }
+                }
+              ]}
+            }
+          ]
+        }
+      },
+      {
+        "title": "压测目标",
+        "type": 0,
+        "content": {
+          "sub": [
+            {
+              "title": "测试结论",
+              "key": "ceshijielun",
+              "type": 1,
+              "content": {
+                "placeholder":"说明制定压测目标的依据，为什么将QPS/MRT制定为对应预期值。线上数据参考,同类数据参考等，结合实际需求情况"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

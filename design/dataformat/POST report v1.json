@@ -1,0 +1,19 @@
+{
+  "user": "admin",
+  "templateId": 1,
+  "content": {
+    "beijing": "这是测试背景",
+    "yacemubiaoyiju": "这是压测目标依据",
+    "yacefanwei": [
+      {
+        "apiType": "HTTP",
+        "apiCn": "/api/test"
+      },
+      {
+        "apiType": "HTTP",
+        "apiCn": "/api/test2"
+      }
+    ],
+    "ceshijielun": "这是测试结论"
+  }
+}
