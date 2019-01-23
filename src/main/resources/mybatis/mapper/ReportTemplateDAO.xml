@@ -4,6 +4,8 @@
     <resultMap id="reportTemplateMap" type="com.netease.music.platform.report.Model.ReportTemplate">
         <id column="id" property="id"/>
         <result column="user" property="user"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
         <result column="content" property="content" typeHandler="com.netease.music.platform.report.Handler.MySqlJsonHandler"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
