@@ -12,17 +12,13 @@ public class Report {
 
     private Integer templateId;
 
+    private String title;
+
     private JSONObject content;
 
     private Date createTime;
 
     private Date updateTime;
-
-//    public Report(Integer id, String user, String content) {
-//        this.id = id;
-//        this.user = user;
-//        this.content = content;
-//    }
 
     public Integer getId() {
         return id;
@@ -46,6 +42,14 @@ public class Report {
 
     public void setTemplateId(Integer templateId) {
         this.templateId = templateId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public JSONObject getContent() {

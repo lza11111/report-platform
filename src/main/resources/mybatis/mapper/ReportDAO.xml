@@ -5,6 +5,7 @@
         <id column="id" property="id"/>
         <result column="user" property="user"/>
         <result column="template_id" property="templateId"/>
+        <result column="title" property="title"/>
         <result column="content" property="content" typeHandler="com.netease.music.platform.report.Handler.MySqlJsonHandler"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
@@ -24,11 +25,12 @@
 
     <!--插入报告-->
     <insert id="insertReport" useGeneratedKeys="true" keyProperty="id" parameterType="com.netease.music.platform.report.Model.Report" >
-        INSERT INTO report (user, template_id, content)
+        INSERT INTO report (user, template_id, title, content)
         VALUES
             (
                 #{user},
                 #{templateId},
+                #{title},
                 #{content,jdbcType=OTHER,typeHandler=com.netease.music.platform.report.Handler.MySqlJsonHandler}
             )
     </insert>
@@ -39,6 +41,7 @@
         <set>
             <if test="report.user != null">user = #{report.user},</if>
             <if test="report.templateId != null">template_id = #{report.templateId},</if>
+            <if test="report.title != null">title = #{report.title},</if>
             <if test="report.content != null">content = #{report.content,jdbcType=OTHER,typeHandler=com.netease.music.platform.report.Handler.MySqlJsonHandler}</if>
         </set>
         <where>
